@@ -13,8 +13,7 @@ This project implements a complete machine learning pipeline—from raw data pre
 * The final fine-tuned model achieved **99.22% test accuracy** and a **0.99 F1-score**.
 * Evaluations highlighted minor confusion between specific diseases, such as Corn Cercospora Leaf Spot being mistaken for Northern Leaf Blight, and a precision dip in identifying healthy Potato leaves.
 * Testing on real leaf photos revealed a significant **Domain Shift**, where accuracy drops when processing "in-the-wild" images due to cluttered backgrounds and natural lighting not present in the original "studio" training data.
-
-
+---
 
 ## Project Workflow
 
@@ -47,6 +46,7 @@ The project is divided into five specialized stages:
 * Top-K Prediction: Displays the top 3 most likely diagnoses with confidence percentages.
 
 
+---
 ## Key Findings
 
 ### Model Training & Optimization & FineTuning 
@@ -70,9 +70,8 @@ The project transitions from a "laboratory" success to a practical tool by addre
 * High Precision: Achieving a 99.22% Test Accuracy using a fine-tuned ResNet50 architecture ensures users receive reliable diagnoses.
 * Real-World Usability: The inclusion of a Top-K Prediction system (showing the top 3 likely diagnoses) acknowledges that nature is rarely 100% certain, providing users with a nuanced confidence percentage.
 
-
 ### Other available models and why ResNet50 ? 
-Several pretrained models could have been used for leaf disease detection, including EfficientNet, DenseNet, MobileNet, Inception, and Vision Transformers (ViT). EfficientNet offers superior accuracy with fewer parameters, DenseNet captures fine-grained features effectively, and MobileNet is ideal for lightweight, real-time deployment. Inception models handle multi-scale patterns well, while transformers excel with large datasets. Despite these options, **ResNet50 stoodout as a strong choice** because its residual connections allow training of deeper networks without vanishing gradients. It provided a reliable balance of accuracy, computational efficiency, and ease of fine-tuning, making it especially suitable for this medium-sized dataset and practical image classification task.
+I web-researched on models like EfficientNet, MobileNet, or Vision Transformers that offer specialized advantages in efficiency or scale, I selected **ResNet50** for its balance of performance and stability. Its residual connections prevent vanishing gradients, ensuring reliable training on this medium-sized dataset.
 
 ## Future Work
 To evolve this project from a laboratory model to a robust field tool, the following steps are proposed:
