@@ -37,6 +37,9 @@ The project is divided into five specialized stages:
 * Top-K Prediction: Displays the top 3 most likely diagnoses with confidence percentages.
 
 
+
+
+
 ## Key Findings
 
 ### Model Training & Optimization & FineTuning 
@@ -59,6 +62,10 @@ The project is divided into five specialized stages:
 The project transitions from a "laboratory" success to a practical tool by addressing specific operational challenges:
 * High Precision: Achieving a 99.22% Test Accuracy using a fine-tuned ResNet50 architecture ensures users receive reliable diagnoses.
 * Real-World Usability: The inclusion of a Top-K Prediction system (showing the top 3 likely diagnoses) acknowledges that nature is rarely 100% certain, providing users with a nuanced confidence percentage.
+
+
+### Other available models and why ResNet50 ? 
+Several pretrained models could have been used for leaf disease detection, including EfficientNet, DenseNet, MobileNet, Inception, and Vision Transformers (ViT). EfficientNet offers superior accuracy with fewer parameters, DenseNet captures fine-grained features effectively, and MobileNet is ideal for lightweight, real-time deployment. Inception models handle multi-scale patterns well, while transformers excel with large datasets. Despite these options, **ResNet50 stoodout as a strong choice** because its residual connections allow training of deeper networks without vanishing gradients. It provided a reliable balance of accuracy, computational efficiency, and ease of fine-tuning, making it especially suitable for this medium-sized dataset and practical image classification task.
 
 ## Future Work
 To evolve this project from a laboratory model to a robust field tool, the following steps are proposed:
