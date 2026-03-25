@@ -4,9 +4,19 @@
 ### Business Understanding 
 The business goal of this project is to enable home gardeners with a tool to detect diseases in common household plants. By using AI, this project lowers the barrier to expert level botanical knowledge, allowing users to take proactive corrective action before the plant is lost.  
 
+## Executive Summary 
+This project implements a complete machine learning pipeline—from raw data preprocessing to real-world inference—to identify **38 different classes** of plant diseases using the **PlantVillage dataset** and a fine-tuned **ResNet50** architecture.
+
+* The pipeline utilized 54,305 color images from the PlantVillage dataset. PreProcessing the data confirming a uniform **256x256** resolution and maintaining a consistent **70/15/15** split ratio across 38 distinct plant-disease classes.
+* Sequential augmentation layer was integrated directly into the model, applying real-time random flips, rotations (0.25), zooms (0.2), and contrast adjustments during the training phase.
+* The system uses the **ResNet50** base optimized via Keras Tuner by unfreezing the **top 40 layers** and applying specific **hyperparameters (128 dense units, 0.4 dropout, 0.0001 learning rate)** to maximize diagnostic accuracy.
+* The final fine-tuned model achieved **99.22% test accuracy** and a **0.99 F1-score**.
+* Evaluations highlighted minor confusion between specific diseases, such as Corn Cercospora Leaf Spot being mistaken for Northern Leaf Blight, and a precision dip in identifying healthy Potato leaves.
+* Testing on real leaf photos revealed a significant **Domain Shift**, where accuracy drops when processing "in-the-wild" images due to cluttered backgrounds and natural lighting not present in the original "studio" training data.
+
+
 
 ## Project Workflow
-This project implements a complete machine learning pipeline—from raw data preprocessing to real-world inference—to identify **38 different classes** of plant diseases using the **PlantVillage dataset** and a fine-tuned **ResNet50** architecture.
 
 The project is divided into five specialized stages:
 
@@ -35,9 +45,6 @@ The project is divided into five specialized stages:
 ### 5. Real-World Inference : 5_inference_real_leaf.ipynb
 * Deployment: User can upload images from real-life for disease prediction.
 * Top-K Prediction: Displays the top 3 most likely diagnoses with confidence percentages.
-
-
-
 
 
 ## Key Findings
