@@ -1,17 +1,12 @@
-## Leaf Disease Diagnosis Project
-Empowering Home Gardeners: AI-Driven Disease Detection for Proactive Plant Care. 
+# Leaf Disease Diagnosis Project
+**Empowering Home Gardeners: AI-Driven Disease Detection for Proactive Plant Care.**
 
 ### Business Understanding 
 The business goal of this project is to enable home gardeners with a tool to detect diseases in common household plants. By using AI, this project lowers the barrier to expert level botanical knowledge, allowing users to take proactive corrective action before the plant is lost.  
 
-### Technical Value Proposition
-The project transitions from a "laboratory" success to a practical tool by addressing specific operational challenges:
-* High Precision: Achieving a 99.22% Test Accuracy using a fine-tuned ResNet50 architecture ensures users receive reliable diagnoses.
-* Real-World Usability: The inclusion of a Top-K Prediction system (showing the top 3 likely diagnoses) acknowledges that nature is rarely 100% certain, providing users with a nuanced confidence percentage.
 
-
-### Project Workflow
-This project implements a complete machine learning pipeline—from raw data preprocessing to real-world inference—to identify 38 different classes of plant diseases using the PlantVillage dataset and a fine-tuned ResNet50 architecture.
+## Project Workflow
+This project implements a complete machine learning pipeline—from raw data preprocessing to real-world inference—to identify **38 different classes** of plant diseases using the **PlantVillage dataset** and a fine-tuned **ResNet50** architecture.
 
 The project is divided into five specialized stages:
 
@@ -34,29 +29,44 @@ The project is divided into five specialized stages:
 * Results: Achieved a 99.22% Test Accuracy.
 
 ### 4. Model Evaluation : 4_evaluation.ipynb
-* Metrics: Detailed classification report showing a 0.99 Weighted Average F1-Score.
+* Metrics: The classification report shows a 0.99 Weighted Average F1-Score.
 * Confusion Matrix: Generated to pinpoint specific inter-class misclassifications.
 
 ### 5. Real-World Inference : 5_inference_real_leaf.ipynb
-* Deployment: A script to upload local images for disease prediction.
+* Deployment: User can upload images from real-life for disease prediction.
 * Top-K Prediction: Displays the top 3 most likely diagnoses with confidence percentages.
 
 
-
 ## Key Findings
-* Exceptional Dataset Performance: The model achieved near-perfect precision (1.00) for major classes like Orange Haunglongbing and Soybean Healthy when tested on the PlantVillage dataset.
-* Specific Confusion Points: Minor performance dips were noted in Corn Cercospora Leaf Spot (0.91 recall), showing confusion with Northern Leaf Blight due to similar lesion patterns.
-* The "Domain Shift" Challenge: While the model is highly accurate on studio-captured images (uniform backgrounds/lighting), performance degrades on real-world photos. Natural lighting, shadows, and cluttered backgrounds introduce noise the model was not fully exposed to during training.
 
+### Model Training & Optimization & FineTuning 
+* Initial Feature Extraction: By training only a custom classification head (Dense layer of 512 units) for 5 epochs, the model reached a validation accuracy of **95.29%**.
+* Optimal Configuration: Using Keras Tuner, the best performance was achieved by unfreezing the **top 40 layers** of the ResNet50 base, using **128 dense units**, and a **0.4 dropout rate**.
+* Final Training: After 10 epochs of fine-tuning, the validation accuracy stabilized at **99.30%**, with a final test accuracy of **99.22%**.
+
+### Evaluation
+* High Reliability: Most classes (e.g., Apple Black Rot, Blueberry healthy, and Tomato Yellow Leaf Curl Virus) achieved perfect or near-perfect F1-scores of **1.00**.
+* Minor Weaknesses: A few categories showed slightly lower performance:
+    * Corn Cercospora Leaf Spot: Had the lowest relative metrics (0.91 recall), occasionally being confused with Northern Leaf Blight.
+    * Potato healthy: Showed a lower precision (0.92), meaning other potato issues were sometimes misidentified as "healthy."
+
+### Real-World Inference & Limitations
+* Domain Shift Challenge: While the model is nearly perfect on dataset images (which have uniform backgrounds and studio lighting), its accuracy **degrades noticeably** on real-world photos. 
+* Environmental Factors: Natural lighting, shadows, cluttered backgrounds, and varying camera angles pose challenges that were not fully represented in the original training data.
+* Example Trial: An uploaded image of a strawberry leaf with scorch resulted in a top prediction of "Peach Bacterial Spot" (41.63%), with the correct "Strawberry Leaf Scorch" coming in second (29.41%).
+
+### Technical Value Proposition
+The project transitions from a "laboratory" success to a practical tool by addressing specific operational challenges:
+* High Precision: Achieving a 99.22% Test Accuracy using a fine-tuned ResNet50 architecture ensures users receive reliable diagnoses.
+* Real-World Usability: The inclusion of a Top-K Prediction system (showing the top 3 likely diagnoses) acknowledges that nature is rarely 100% certain, providing users with a nuanced confidence percentage.
 
 ## Future Work
 To evolve this project from a laboratory model to a robust field tool, the following steps are proposed:
+* Background-Aware Training: Incorporate "Background" or "Noise" classes containing non-leaf images to reduce false positives in the field.
+* Diverse Data Acquisition: Supplement the training set with images captured in natural environments (different weather conditions and growth stages) to combat Domain Shift.
 
-1.  Background-Aware Training: Incorporate "Background" or "Noise" classes containing non-leaf images to reduce false positives in the field.
-2.  Diverse Data Acquisition: Supplement the training set with images captured in natural environments (different weather conditions and growth stages) to combat Domain Shift.
 
-
-### Performance & Optimization Notes
+## Performance & Optimization Notes
 
 During the development significant training bottlenecks were identified and resolved through data pipeline restructuring and hardware scaling.
 
@@ -72,7 +82,7 @@ During the development significant training bottlenecks were identified and reso
 * Result: With hardware acceleration, the entire fine-tuning process—which previously failed after hours on a CPU—completed successfully in just 60 minutes.
 * Outcome: This allowed for the successful generation of the final optimized model, with a 99.22% Test Accuracy.
 
-### Link to Google Colab Notebooks. 
+## Link to Google Colab Notebooks. 
 1. [1_preprocessing.ipynb](https://colab.research.google.com/drive/1AcfjIR24M1xhrg_bjjfrYb0TyzNbb8Iv)
 2. [2_visualizations.ipynb](https://colab.research.google.com/drive/1ylmBTFvj0P2JePw1H-DLsuSv7nTiCPMs)
 3. [3_training.ipynb](https://colab.research.google.com/drive/1892Kg6_uzkmJludGy4-wTtImHYczwPUk)
