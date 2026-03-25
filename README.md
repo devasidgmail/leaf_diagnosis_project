@@ -1,4 +1,7 @@
 ## Leaf Disease Diagnosis Project
+Empowering Home Gardeners: AI-Driven Disease Detection for Proactive Plant Care. 
+
+The goal of this project is to enable users to detect diseases effecting the plants which are very commonly found in house gardens , and take corrective action. 
 
 This project implements a complete machine learning pipeline—from raw data preprocessing to real-world inference—to identify 38 different classes of plant diseases using the PlantVillage dataset and a fine-tuned ResNet50 architecture.
 
