@@ -65,20 +65,12 @@ The project is divided into five specialized stages:
 * Environmental Factors: Natural lighting, shadows, cluttered backgrounds, and varying camera angles pose challenges that were not fully represented in the original training data.
 * Example Trial: An uploaded image of a strawberry leaf with scorch resulted in a top prediction of "Peach Bacterial Spot" (41.63%), with the correct "Strawberry Leaf Scorch" coming in second (29.41%).
 
-### Technical Value Proposition
-The project transitions from a "laboratory" success to a practical tool by addressing specific operational challenges:
-* High Precision: Achieving a 99.22% Test Accuracy using a fine-tuned ResNet50 architecture ensures users receive reliable diagnoses.
-* Real-World Usability: The inclusion of a Top-K Prediction system (showing the top 3 likely diagnoses) acknowledges that nature is rarely 100% certain, providing users with a nuanced confidence percentage.
-
-### Other available models and why ResNet50 ? 
-I web-researched on models like EfficientNet, MobileNet, or Vision Transformers that offer specialized advantages in efficiency or scale, I selected **ResNet50** for its balance of performance and stability. Its residual connections prevent vanishing gradients, ensuring reliable training on this medium-sized dataset.
-
 ## Future Work
 To evolve this project from a laboratory model to a robust field tool, the following steps are proposed:
 * Background-Aware Training: Incorporate "Background" or "Noise" classes containing non-leaf images to reduce false positives in the field.
 * Diverse Data Acquisition: Supplement the training set with images captured in natural environments (different weather conditions and growth stages) to combat Domain Shift.
 
-
+---
 ## Performance & Optimization Notes
 
 During the development significant training bottlenecks were identified and resolved through data pipeline restructuring and hardware scaling.
@@ -94,6 +86,9 @@ During the development significant training bottlenecks were identified and reso
 * Strategic Upgrade: To ensure session stability and handle the 38-class classification complexity, the environment was switched to high-performance A100 GPUs via Colab compute credits.
 * Result: With hardware acceleration, the entire fine-tuning process—which previously failed after hours on a CPU—completed successfully in just 60 minutes.
 * Outcome: This allowed for the successful generation of the final optimized model, with a 99.22% Test Accuracy.
+
+### Other available models and why ResNet50 ? 
+I web-researched on models like EfficientNet, MobileNet, or Vision Transformers that offer specialized advantages in efficiency or scale, I selected **ResNet50** for its balance of performance and stability. Its residual connections prevent vanishing gradients, ensuring reliable training on this medium-sized dataset.
 
 ## Link to Google Colab Notebooks. 
 1. [1_preprocessing.ipynb](https://colab.research.google.com/drive/1AcfjIR24M1xhrg_bjjfrYb0TyzNbb8Iv)
