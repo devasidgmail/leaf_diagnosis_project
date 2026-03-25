@@ -68,7 +68,7 @@ During the development significant training bottlenecks were identified and reso
 
 ### Link to Google Colab Notebooks. 
 1. [1_preprocessing.ipynb](https://colab.research.google.com/drive/1AcfjIR24M1xhrg_bjjfrYb0TyzNbb8Iv)
-2. [2_visualizations.ipynb](https://colab.research.google.com/drive/1ylmBTFvj0P2JePw1H-DLsuSv7nTiCPMs?usp=drive_link)
-3. [3_training.ipynb](https://colab.research.google.com/drive/1892Kg6_uzkmJludGy4-wTtImHYczwPUk?usp=drive_link)
-4. [4_evaluation.ipynb](https://colab.research.google.com/drive/1FNqPBTSkM4Z0vufG6STjX2Ugi1lpOnM0?usp=drive_link)
-5. [5_inference_real_leaf.ipynb](https://colab.research.google.com/drive/1nD3Rnz5gv8vQNcSoEieEuh-7StOZ_z3o?usp=drive_link)
+2. [2_visualizations.ipynb](https://colab.research.google.com/drive/1ylmBTFvj0P2JePw1H-DLsuSv7nTiCPMs)
+3. [3_training.ipynb](https://colab.research.google.com/drive/1892Kg6_uzkmJludGy4-wTtImHYczwPUk)
+4. [4_evaluation.ipynb](https://colab.research.google.com/drive/1FNqPBTSkM4Z0vufG6STjX2Ugi1lpOnM0)
+5. [5_inference_real_leaf.ipynb](https://colab.research.google.com/drive/1nD3Rnz5gv8vQNcSoEieEuh-7StOZ_z3o)
